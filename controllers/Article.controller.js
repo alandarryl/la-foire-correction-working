@@ -28,7 +28,7 @@ const getArticleById = async (req, res, next) => {
         if(!article) return res.status(404).json('Article not found !')
         res.status(200).json(article)
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))
+        next(createError(500, "failed to get one articles", error.message))
     }
 }
 
@@ -40,7 +40,7 @@ const deleteArticle = async (req, res, next) => {
         
         res.status(200).json('Article deleted !!!!!!')
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))        
+        next(createError(500, "failed to delete one articles", error.message))        
     }
 }
 
@@ -53,7 +53,7 @@ const updateArticle = async (req, res, next) => {
         if(!article) return res.status(404).json('Article not found  !!!');
         res.status(200).json(article)
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))
+        next(createError(500, "failed to update one articles", error.message))
     }
 }
 
@@ -63,7 +63,7 @@ const getAvis = async (req, res, next) => {
         if(!articleWithAvis) return res.status(404).json('Avis Not Found !!!!!!!!!');
         res.status(200).json(articleWithAvis)
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))
+        next(createError(500, "failed get avis articles", error.message))
     }
 } 
 
@@ -72,7 +72,7 @@ const ascArticle = async (req , res, next) => {
         const articles = await ModelArticle.find().sort("price");
         res.status(200).json(articles);
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))
+        next(createError(500, "failed get sort up articles", error.message))
     }
 }
 
@@ -81,7 +81,7 @@ const descArticle = async (req , res, next) => {
         const articles = await ModelArticle.find().sort("-price");
         res.status(200).json(articles);
     } catch (error) {
-        next(createError(500, "failed get all articles", error.message))
+        next(createError(500, "failed get sort dow articles", error.message))
     }
 }
 
@@ -114,7 +114,7 @@ const sortByNote = async (req, res, next) => {
         
         res.status(200).json(articles);
     } catch (error) {
-        next(createError(500, "failed get all articles", error.messa))
+        next(createError(500, "failed to sort", error.message))
     }
 } 
 
